@@ -1,0 +1,10 @@
+name: libsass
+version: 0.0.1
+author: Dariel Dato-on <oddrationale@gmail.com>
+description: A Dart VM Native Extension for libsass
+environment:
+  sdk: '>=1.0.0 <2.0.0'
+dev_dependencies:
+  unittest: any
+executables:
+  dsass:
