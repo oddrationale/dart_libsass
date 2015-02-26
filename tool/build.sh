@@ -38,7 +38,7 @@ fi
 if [ ! -e "$LIBSASS_SRC/lib/libsass.a" ]; then
   echo Compiling libsass
   cd $LIBSASS_SRC
-  make -C libsass -j5 
+  make -j5 
 fi
 
 cd $PROJECT_ROOT/lib/src
