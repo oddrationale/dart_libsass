@@ -5,5 +5,6 @@
 build/
 packages
 pubspec.lock
+*.iml
 *.o
 *.so
