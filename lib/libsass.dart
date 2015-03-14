@@ -4,7 +4,7 @@
 /// The classes closely follow the functions laid out in the `sass_context.h`
 /// file in the original libsass library. For further documentation, please
 /// refer to the
-/// [libsass implementation guide](https://github.com/sass/libsass/wiki)
+/// [libsass implementation guide](https://github.com/sass/libsass/wiki).
 library libsass;
 
 import 'dart-ext:sass_extension';
@@ -121,6 +121,7 @@ abstract class SassContext {
   void set options(SassOptions options);
 
   String get outputString => _sassContextGetOutputString(_handle);
+  int get errorStatus => _sassContextGetErrorStatus(_handle);
   String get errorJson => _sassContextGetErrorJson(_handle);
   String get sourceMapString => _sassContextGetSourceMapString(_handle);
   String get includedFiles => _sassContextGetIncludedFiles(_handle);
@@ -130,6 +131,8 @@ abstract class SassContext {
 
   String _sassContextGetOutputString(int handle) native
       "sass_context_get_output_string";
+  int _sassContextGetErrorStatus(int handle) native
+      "sass_context_get_error_status";
   String _sassContextGetErrorJson(int handle) native
       "sass_context_get_error_json";
   String _sassContextGetSourceMapString(int handle) native

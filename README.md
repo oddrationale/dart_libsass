@@ -4,4 +4,24 @@
 
 A Dart VM Native Extension for libsass.
 
-Under Construction
+This package provides Dart language bindings for the [libsass](http://libsass.org/) library, the C version of the popular stylesheet preprocessor, Sass.
+
+## Build Instructions
+
+Because this library contains a Dart VM Native Extension, you will need to compile the extension before using the library. Currently, the build script only supports Linux:
+
+```shell
+git clone https://github.com/oddrationale/dart_libsass.git
+cd dart_libsass
+./tool/build.sh
+```
+
+This script will pull the libsass submodule, compile libsass, and compile the extenstion. Support for other platforms is coming soon!
+
+## Command Line
+
+This package also provides a `sassc` compatible executable:
+
+```shell
+dart bin/sassd.dart input.scss output.css
+```

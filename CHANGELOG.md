@@ -5,3 +5,5 @@
 - Initial version
 - Based on libsass v3.1.0
 - Wrapped libsass functions in Dart classes
+- A `sassc` compatible executable: `sassd`
+

@@ -300,6 +300,7 @@ void sass_option_get_is_indented_syntax_src(Dart_NativeArguments arguments) {
 void sass_option_get_input_path(Dart_NativeArguments arguments) {
   struct Sass_Options* options;
   int64_t peer;
+  const char* str;
   Dart_Handle dh_handle;
   Dart_Handle result;
 
@@ -307,7 +308,12 @@ void sass_option_get_input_path(Dart_NativeArguments arguments) {
   dh_handle = HandleError(Dart_GetNativeArgument(arguments, 1));
   HandleError(Dart_IntegerToInt64(dh_handle, &peer));
   options = (struct Sass_Options*)peer;
-  result = HandleError(Dart_NewStringFromCString(sass_option_get_input_path(options)));
+  str = sass_option_get_input_path(options);
+  if (str != NULL) { // check if the string is not NULL
+    result = HandleError(Dart_NewStringFromCString(str));
+  } else {
+    result = Dart_Null();
+  }
   Dart_SetReturnValue(arguments, result);
   Dart_ExitScope();
 }
@@ -315,6 +321,7 @@ void sass_option_get_input_path(Dart_NativeArguments arguments) {
 void sass_option_get_output_path(Dart_NativeArguments arguments) {
   struct Sass_Options* options;
   int64_t peer;
+  const char* str;
   Dart_Handle dh_handle;
   Dart_Handle result;
 
@@ -322,7 +329,12 @@ void sass_option_get_output_path(Dart_NativeArguments arguments) {
   dh_handle = HandleError(Dart_GetNativeArgument(arguments, 1));
   HandleError(Dart_IntegerToInt64(dh_handle, &peer));
   options = (struct Sass_Options*)peer;
-  result = HandleError(Dart_NewStringFromCString(sass_option_get_output_path(options)));
+  str = sass_option_get_output_path(options);
+  if (str != NULL) { // check if the string is not NULL
+    result = HandleError(Dart_NewStringFromCString(str));
+  } else {
+    result = Dart_Null();
+  }
   Dart_SetReturnValue(arguments, result);
   Dart_ExitScope();
 }
@@ -330,6 +342,7 @@ void sass_option_get_output_path(Dart_NativeArguments arguments) {
 void sass_option_get_include_path(Dart_NativeArguments arguments) {
   struct Sass_Options* options;
   int64_t peer;
+  const char* str;
   Dart_Handle dh_handle;
   Dart_Handle result;
 
@@ -337,7 +350,12 @@ void sass_option_get_include_path(Dart_NativeArguments arguments) {
   dh_handle = HandleError(Dart_GetNativeArgument(arguments, 1));
   HandleError(Dart_IntegerToInt64(dh_handle, &peer));
   options = (struct Sass_Options*)peer;
-  result = HandleError(Dart_NewStringFromCString(sass_option_get_include_path(options)));
+  str = sass_option_get_include_path(options);
+  if (str != NULL) { // check if the string is not NULL
+    result = HandleError(Dart_NewStringFromCString(str));
+  } else {
+    result = Dart_Null();
+  }
   Dart_SetReturnValue(arguments, result);
   Dart_ExitScope();
 }
@@ -345,6 +363,7 @@ void sass_option_get_include_path(Dart_NativeArguments arguments) {
 void sass_option_get_source_map_file(Dart_NativeArguments arguments) {
   struct Sass_Options* options;
   int64_t peer;
+  const char* str;
   Dart_Handle dh_handle;
   Dart_Handle result;
 
@@ -352,7 +371,12 @@ void sass_option_get_source_map_file(Dart_NativeArguments arguments) {
   dh_handle = HandleError(Dart_GetNativeArgument(arguments, 1));
   HandleError(Dart_IntegerToInt64(dh_handle, &peer));
   options = (struct Sass_Options*)peer;
-  result = HandleError(Dart_NewStringFromCString(sass_option_get_source_map_file(options)));
+  str = sass_option_get_source_map_file(options);
+  if (str != NULL) { // check if the string is not NULL
+    result = HandleError(Dart_NewStringFromCString(str));
+  } else {
+    result = Dart_Null();
+  }
   Dart_SetReturnValue(arguments, result);
   Dart_ExitScope();
 }
@@ -564,6 +588,7 @@ void sass_option_set_source_map_file(Dart_NativeArguments arguments) {
 void sass_context_get_output_string(Dart_NativeArguments arguments) {
   struct Sass_Context* ctx;
   int64_t peer;
+  const char* str;
   Dart_Handle dh_handle;
   Dart_Handle result;
 
@@ -571,7 +596,27 @@ void sass_context_get_output_string(Dart_NativeArguments arguments) {
   dh_handle = HandleError(Dart_GetNativeArgument(arguments, 1));
   HandleError(Dart_IntegerToInt64(dh_handle, &peer));
   ctx = (struct Sass_Context*)peer;
-  result = HandleError(Dart_NewStringFromCString(sass_context_get_output_string(ctx)));
+  str = sass_context_get_output_string(ctx);
+  if (str != NULL) { // check if the string is not NULL
+    result = HandleError(Dart_NewStringFromCString(str));
+  } else {
+    result = Dart_Null();
+  }
+  Dart_SetReturnValue(arguments, result);
+  Dart_ExitScope();
+}
+
+void sass_context_get_error_status(Dart_NativeArguments arguments) {
+  struct Sass_Context* ctx;
+  int64_t peer;
+  Dart_Handle dh_handle;
+  Dart_Handle result;
+
+  Dart_EnterScope();
+  dh_handle = HandleError(Dart_GetNativeArgument(arguments, 1));
+  HandleError(Dart_IntegerToInt64(dh_handle, &peer));
+  ctx = (struct Sass_Context*)peer;
+  result = HandleError(Dart_NewInteger(sass_context_get_error_status(ctx)));
   Dart_SetReturnValue(arguments, result);
   Dart_ExitScope();
 }
@@ -579,6 +624,7 @@ void sass_context_get_output_string(Dart_NativeArguments arguments) {
 void sass_context_get_error_json(Dart_NativeArguments arguments) {
   struct Sass_Context* ctx;
   int64_t peer;
+  const char* str;
   Dart_Handle dh_handle;
   Dart_Handle result;
 
@@ -586,7 +632,12 @@ void sass_context_get_error_json(Dart_NativeArguments arguments) {
   dh_handle = HandleError(Dart_GetNativeArgument(arguments, 1));
   HandleError(Dart_IntegerToInt64(dh_handle, &peer));
   ctx = (struct Sass_Context*)peer;
-  result = HandleError(Dart_NewStringFromCString(sass_context_get_error_json(ctx)));
+  str = sass_context_get_error_json(ctx);
+  if (str != NULL) { // check if the string is not NULL
+    result = HandleError(Dart_NewStringFromCString(str));
+  } else {
+    result = Dart_Null();
+  }
   Dart_SetReturnValue(arguments, result);
   Dart_ExitScope();
 }
@@ -594,6 +645,7 @@ void sass_context_get_error_json(Dart_NativeArguments arguments) {
 void sass_context_get_source_map_string(Dart_NativeArguments arguments) {
   struct Sass_Context* ctx;
   int64_t peer;
+  const char* str;
   Dart_Handle dh_handle;
   Dart_Handle result;
 
@@ -601,7 +653,12 @@ void sass_context_get_source_map_string(Dart_NativeArguments arguments) {
   dh_handle = HandleError(Dart_GetNativeArgument(arguments, 1));
   HandleError(Dart_IntegerToInt64(dh_handle, &peer));
   ctx = (struct Sass_Context*)peer;
-  result = HandleError(Dart_NewStringFromCString(sass_context_get_source_map_string(ctx)));
+  str = sass_context_get_source_map_string(ctx);
+  if (str != NULL) { // check if the string is not NULL
+    result = HandleError(Dart_NewStringFromCString(str));
+  } else {
+    result = Dart_Null();
+  }
   Dart_SetReturnValue(arguments, result);
   Dart_ExitScope();
 }
@@ -609,6 +666,7 @@ void sass_context_get_source_map_string(Dart_NativeArguments arguments) {
 void sass_context_get_included_files(Dart_NativeArguments arguments) {
   struct Sass_Context* ctx;
   int64_t peer;
+  char** str;
   Dart_Handle dh_handle;
   Dart_Handle result;
 
@@ -616,7 +674,12 @@ void sass_context_get_included_files(Dart_NativeArguments arguments) {
   dh_handle = HandleError(Dart_GetNativeArgument(arguments, 1));
   HandleError(Dart_IntegerToInt64(dh_handle, &peer));
   ctx = (struct Sass_Context*)peer;
-  result = HandleError(Dart_NewStringFromCString((char*)sass_context_get_included_files(ctx)));
+  str = sass_context_get_included_files(ctx);
+  if (str != NULL) { // check if the string is not NULL
+    result = HandleError(Dart_NewStringFromCString((char*)str));
+  } else {
+    result = Dart_Null();
+  }
   Dart_SetReturnValue(arguments, result);
   Dart_ExitScope();
 }
@@ -702,6 +765,7 @@ FunctionLookup function_list[] = {
   
   // Getter for context
   {"sass_context_get_output_string", sass_context_get_output_string},
+  {"sass_context_get_error_status", sass_context_get_error_status},
   {"sass_context_get_error_json", sass_context_get_error_json},
   {"sass_context_get_source_map_string", sass_context_get_source_map_string},
   {"sass_context_get_included_files", sass_context_get_included_files},
