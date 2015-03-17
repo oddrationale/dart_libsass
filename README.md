@@ -8,15 +8,15 @@ This package provides Dart language bindings for the [libsass](http://libsass.or
 
 ## Build Instructions
 
-Because this library contains a Dart VM Native Extension, you will need to compile the extension before using the library. Currently, the build script only supports Linux:
+Because this library contains a Dart VM Native Extension, you will need to compile the extension before using the library. Currently, the build script only supports Linux and Mac (untested):
 
 ```shell
 git clone https://github.com/oddrationale/dart_libsass.git
 cd dart_libsass
-./tool/build.sh
+dart tool/build.dart
 ```
 
-This script will pull the libsass submodule, compile libsass, and compile the extenstion. Support for other platforms is coming soon!
+This script will pull the libsass submodule, compile libsass, and compile the extenstion. Support for Windows is coming soon!
 
 ## Command Line
 
