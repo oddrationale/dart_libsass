@@ -7,6 +7,8 @@ environment:
 dependencies:
   args: '>=0.12.2 <1.0.0'
 dev_dependencies:
+  cli_util: any
+  path: any
   unittest: any
 executables:
   sassd: sassd
