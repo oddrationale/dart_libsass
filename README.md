@@ -13,6 +13,7 @@ Because this library contains a Dart VM Native Extension, you will need to compi
 ```shell
 git clone https://github.com/oddrationale/dart_libsass.git
 cd dart_libsass
+pub get
 dart tool/build.dart
 ```
 
