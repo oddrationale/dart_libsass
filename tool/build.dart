@@ -78,6 +78,7 @@ Future extensionCompileNix() {
   ['-fPIC',
   '-I${dartSdkDir.path}',
   '-I${libsassLibDir.path}',
+  '-DDART_SHARED_LIB',
   '-c', 'sass_extension.cc'],
   wD: extensionSourceDir);
   makeExtensionProcessS2 = new ProcessArgs('gcc', ['-fPIC'], wD: extensionSourceDir);
@@ -95,7 +96,8 @@ Future extensionCompileNix() {
         '-m$dartSdkArch',
         '-Wl,-soname,libsass_extension.so',
         '-o', '../libsass_extension.so',
-        '-lc'
+        '-lc',
+        'sass_extension.o'
     ]);
   } else if(Platform.isMacOS) {
     makeExtensionProcessS1.arguments.addAll([
@@ -107,7 +109,8 @@ Future extensionCompileNix() {
         '-arch', dartSdkArch,
         '-Wl,-install_name,libsass_extension.dylib',
         '-o', '../libsass_extension.dylib',
-        '-lc'
+        '-lc',
+        'sass_extension.o'
     ]);
   }
   // append .o files to process-arguments
