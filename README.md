@@ -1,3 +1,6 @@
+# Deprecated
+**Sass** is now [written in Dart](https://github.com/sass/dart-sass)! So this project is no longer needed. However, it can still be useful as an example of how to use C extensions in Dart.
+
 # libsass for Dart
 
 ![libsass+dart](http://i.imgur.com/kh8QIRG.png)
